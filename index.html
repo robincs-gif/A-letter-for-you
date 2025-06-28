@@ -244,28 +244,28 @@
       border: 3px solid rgba(255, 255, 255, 0.3);
       position: absolute;
       top: 0;
-      animation: moveLeftRight 8s infinite ease-in-out;
+      animation: moveLeftRight 10s infinite ease-in-out;
     }
 
     @keyframes moveLeftRight {
       0% { 
-        left: 10%;
+        left: 0%;
         transform: translateX(0%) scaleX(1);
       }
-      25% { 
-        left: 35%;
-        transform: translateX(-50%) scaleX(1);
+      45% { 
+        left: calc(100% - 120px);
+        transform: translateX(0%) scaleX(1);
       }
       50% { 
-        left: 60%;
-        transform: translateX(-50%) scaleX(-1);
+        left: calc(100% - 120px);
+        transform: translateX(0%) scaleX(-1);
       }
-      75% { 
-        left: 35%;
-        transform: translateX(-50%) scaleX(-1);
+      95% { 
+        left: 0%;
+        transform: translateX(0%) scaleX(-1);
       }
       100% { 
-        left: 10%;
+        left: 0%;
         transform: translateX(0%) scaleX(1);
       }
     }
@@ -309,6 +309,28 @@
       }
       .corgi-sticker img {
         width: 100px;
+      }
+      @keyframes moveLeftRight {
+        0% { 
+          left: 0%;
+          transform: translateX(0%) scaleX(1);
+        }
+        25% { 
+          left: 25%;
+          transform: translateX(-50%) scaleX(1);
+        }
+        50% { 
+          left: calc(100% - 100px);
+          transform: translateX(0%) scaleX(-1);
+        }
+        75% { 
+          left: 25%;
+          transform: translateX(-50%) scaleX(-1);
+        }
+        100% { 
+          left: 0%;
+          transform: translateX(0%) scaleX(1);
+        }
       }
     }
 
