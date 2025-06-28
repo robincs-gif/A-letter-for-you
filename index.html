@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adrienne...?</title>
+  <style>
+    body {
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(200, 151, 245, 0.4) 0%, transparent 50%),
+        linear-gradient(135deg, #d0b3ff 0%, #f5e6ff 25%, #e6ccff 50%, #d9b3ff 75%, #f0e6ff 100%);
+      background-size: 200% 200%, 300% 300%, 250% 250%, 400% 400%;
+      animation: 
+        etherealMove1 8s ease-in-out infinite,
+        etherealMove2 12s ease-in-out infinite reverse,
+        etherealMove3 15s ease-in-out infinite,
+        gradientShift 20s ease infinite;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: #4d2e5a;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse at top left, rgba(208, 179, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at top right, rgba(230, 204, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom left, rgba(245, 230, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(217, 179, 255, 0.1) 0%, transparent 50%);
+      background-size: 300% 300%, 400% 400%, 350% 350%, 280% 280%;
+      animation: 
+        etherealFloat1 25s ease-in-out infinite,
+        etherealFloat2 30s ease-in-out infinite reverse,
+        etherealFloat3 20s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 60% 30%, rgba(200, 151, 245, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 30% 70%, rgba(180, 151, 245, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(230, 204, 255, 0.05) 0%, transparent 60%);
+      background-size: 400% 400%, 350% 350%, 300% 300%;
+      animation: 
+        etherealDrift1 35s linear infinite,
+        etherealDrift2 28s linear infinite reverse,
+        etherealDrift3 32s linear infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%, 0% 50%, 0% 50%, 0% 50%; }
+      25% { background-position: 50% 100%, 25% 75%, 75% 25%, 100% 0%; }
+      50% { background-position: 100% 50%, 50% 50%, 50% 50%, 50% 50%; }
+      75% { background-position: 50% 0%, 75% 25%, 25% 75%, 0% 100%; }
+      100% { background-position: 0% 50%, 0% 50%, 0% 50%, 0% 50%; }
+    }
+
+    @keyframes etherealMove1 {
+      0%, 100% { background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%; }
+      33% { background-position: 30% 20%, 40% 30%, 20% 40%, 50% 10%; }
+      66% { background-position: 60% 40%, 20% 60%, 40% 20%, 10% 50%; }
+    }
+
+    @keyframes etherealMove2 {
+      0%, 100% { background-position: 100% 100%, 100% 100%, 100% 100%, 100% 100%; }
+      50% { background-position: 70% 70%, 60% 80%, 80% 60%, 50% 90%; }
+    }
+
+    @keyframes etherealMove3 {
+      0%, 100% { background-position: 50% 50%, 50% 50%, 50% 50%, 50% 50%; }
+      25% { background-position: 20% 80%, 80% 20%, 60% 70%, 70% 30%; }
+      75% { background-position: 80% 20%, 20% 80%, 30% 60%, 90% 40%; }
+    }
+
+    @keyframes etherealFloat1 {
+      0%, 100% { 
+        background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%;
+        transform: scale(1) rotate(0deg);
+      }
+      25% { 
+        background-position: 25% 25%, 75% 25%, 25% 75%, 75% 75%;
+        transform: scale(1.1) rotate(90deg);
+      }
+      50% { 
+        background-position: 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+        transform: scale(0.9) rotate(180deg);
+      }
+      75% { 
+        background-position: 75% 25%, 25% 75%, 75% 25%, 25% 75%;
+        transform: scale(1.05) rotate(270deg);
+      }
+    }
+
+    @keyframes etherealFloat2 {
+      0%, 100% { 
+        background-position: 100% 100%, 0% 100%, 100% 0%, 0% 0%;
+        opacity: 0.3;
+      }
+      50% { 
+        background-position: 20% 20%, 80% 20%, 20% 80%, 80% 80%;
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes etherealFloat3 {
+      0%, 100% { 
+        background-position: 30% 70%, 70% 30%, 60% 40%, 40% 60%;
+        filter: blur(0px);
+      }
+      50% { 
+        background-position: 70% 30%, 30% 70%, 40% 60%, 60% 40%;
+        filter: blur(1px);
+      }
+    }
+
+    @keyframes etherealDrift1 {
+      0% { background-position: 0% 0%, 100% 100%, 50% 0%; }
+      25% { background-position: 25% 25%, 75% 75%, 75% 25%; }
+      50% { background-position: 50% 50%, 50% 50%, 100% 50%; }
+      75% { background-position: 75% 75%, 25% 25%, 25% 75%; }
+      100% { background-position: 100% 100%, 0% 0%, 0% 100%; }
+    }
+
+    @keyframes etherealDrift2 {
+      0% { background-position: 100% 0%, 0% 100%, 50% 50%; }
+      33% { background-position: 66% 33%, 33% 66%, 80% 20%; }
+      66% { background-position: 33% 66%, 66% 33%, 20% 80%; }
+      100% { background-position: 0% 100%, 100% 0%, 50% 50%; }
+    }
+
+    @keyframes etherealDrift3 {
+      0% { 
+        background-position: 50% 0%, 0% 50%, 100% 50%;
+        transform: translateY(0px);
+      }
+      25% { 
+        background-position: 75% 25%, 25% 75%, 50% 100%;
+        transform: translateY(-10px);
+      }
+      50% { 
+        background-position: 100% 50%, 50% 100%, 0% 50%;
+        transform: translateY(5px);
+      }
+      75% { 
+        background-position: 25% 75%, 75% 25%, 50% 0%;
+        transform: translateY(-5px);
+      }
+      100% { 
+        background-position: 0% 100%, 100% 0%, 100% 50%;
+        transform: translateY(0px);
+      }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      animation: titlePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes titlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .question-container button {
+      background: linear-gradient(135deg, #c997f5, #b584f2);
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      margin: 15px;
+      font-size: 1.2em;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(201, 151, 245, 0.3);
+      transform: translateY(0);
+    }
+
+    .question-container button:hover {
+      background: linear-gradient(135deg, #aa7de2, #9966cc);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(201, 151, 245, 0.4);
+    }
+
+    .question-container button:active {
+      transform: translateY(0);
+    }
+
+    .response {
+      font-size: 1.3em;
+      margin-top: 20px;
+      display: none;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .okay-manong {
+      margin-top: 20px;
+      font-size: 1.4em;
+      font-weight: bold;
+      display: none;
+      color: #8a2be2;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .corgi-sticker {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      width: 100px;
+      animation: bounce 2s infinite ease-in-out;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(5deg); }
+    }
+
+    .sticker-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .sticker-row img {
+      max-width: 40vw;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .sticker-row img:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .sticker-row img {
+        max-width: 80vw;
+      }
+      h1 {
+        font-size: 2em;
+      }
+    }
+
+    .emoji-float {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatUp 3s ease-out forwards;
+      pointer-events: none;
+      z-index: 1000;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-50px) scale(1.3) rotate(180deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-120px) scale(1.5) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .countdown {
+      font-size: 1.1em;
+      color: #8a2be2;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .celebration {
+      background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4ecdc4, #45b7d1);
+      background-size: 300% 300%;
+      animation: gradientShift 2s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.5em;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Adrienne... Did you just graduate? 🎓</h1>
+
+  <div class="question-container" id="question-box">
+    <button id="yes-btn" onclick="handleAnswer('yes')">Yes 🥹</button>
+    <button id="no-btn" onclick="handleAnswer('no')">No 😵‍💫</button>
+    <p id="response" class="response"></p>
+    <div id="countdown" class="countdown"></div>
+    <div id="manong" class="okay-manong">Okay, Manong.</div>
+  </div>
+
+  <div class="sticker-row">
+    <img src="https://media.tenor.com/V9cbsfOp6yUAAAAi/panda-smirk.gif" alt="Smirking Panda">
+    <img src="https://media.tenor.com/Uu7mIQzZx3cAAAAC/shrek-smirk.gif" alt="Shrek Smirk">
+  </div>
+
+  <div class="corgi-sticker">
+    <img src="https://media.tenor.com/MeWdBvXkKOsAAAAi/corgi-orgy-corgi.gif" alt="dancing corgi">
+  </div>
+
+  <script>
+    let clickedSequence = [];
+
+    function handleAnswer(choice) {
+      const res = document.getElementById('response');
+      const questionBox = document.getElementById('question-box');
+      const manongText = document.getElementById('manong');
+      const countdownEl = document.getElementById('countdown');
+      const yesBtn = document.getElementById('yes-btn');
+      const noBtn = document.getElementById('no-btn');
+      
+      res.style.display = 'block';
+      clickedSequence.push(choice);
+
+      if (clickedSequence.length === 1 && choice === 'yes') {
+        res.innerHTML = "Really? Did you just graduate?? 😱";
+        yesBtn.innerHTML = "Dudoyyyy 🥳";
+        noBtn.innerHTML = "Hmmm, let me think 🤔";
+        yesBtn.onclick = () => handleAnswer('duduyyy');
+        noBtn.onclick = () => handleAnswer('think');
+      }
+      else if (clickedSequence.length === 2 && clickedSequence[0] === 'yes' && clickedSequence[1] === 'duduyyy') {
+        res.innerHTML = "What was your favorite part? 🤔";
+        yesBtn.innerHTML = "Walking across stage 🎓";
+        noBtn.innerHTML = "Finally done waking up at freaking 5am on weekdays! 😡";
+        yesBtn.onclick = () => handleAnswer('stage');
+        noBtn.onclick = () => handleAnswer('5am');
+      }
+      else if (clickedSequence.length === 3 && clickedSequence[0] === 'yes' && clickedSequence[1] === 'duduyyy' && clickedSequence[2] === 'stage') {
+        res.innerHTML = '<div class="celebration">Wow wow wow wow! 🎉</div>';
+        const buttons = questionBox.querySelectorAll("button");
+        buttons.forEach(btn => btn.remove());
+        triggerEmojiExplosion();
+        startCountdown(3, () => {
+          window.location.href = "letter.html";
+        });
+      }
+      else if (clickedSequence.length === 3 && clickedSequence[0] === 'yes' && clickedSequence[1] === 'duduyyy' && clickedSequence[2] === '5am') {
+        res.innerHTML = '<div class="celebration">More sleep and more freedom for you yay! 😂</div>';
+        const buttons = questionBox.querySelectorAll("button");
+        buttons.forEach(btn => btn.remove());
+        triggerEmojiExplosion();
+        startCountdown(3, () => {
+          window.location.href = "letter.html";
+        });
+      }
+      else if (clickedSequence.length === 2 && clickedSequence[0] === 'yes' && clickedSequence[1] === 'think') {
+        res.innerHTML = "Well I think you did. So did you? 🤨";
+        yesBtn.innerHTML = "Actually sir, I did. DUHH 🙄";
+        noBtn.innerHTML = "I'm gonna punch you 👊";
+        yesBtn.onclick = () => handleAnswer('yes-final');
+        noBtn.onclick = () => handleAnswer('punch');
+      }
+      else if (clickedSequence.length === 1 && choice === 'no') {
+        res.innerHTML = "Are you sure? 🤔";
+        yesBtn.innerHTML = "Yes, I graduated 🎓";
+        noBtn.innerHTML = "No, I didn't graduate actually 😅";
+        yesBtn.onclick = () => handleAnswer('graduated');
+        noBtn.onclick = () => handleAnswer('didnt-graduate');
+      }
+      else if (clickedSequence.length === 2 && clickedSequence[0] === 'no' && clickedSequence[1] === 'graduated') {
+        res.innerHTML = "Now, you're confusing me. Did you really graduate? 😵‍💫";
+        yesBtn.innerHTML = "Excuse me sir, I actually did. THANK YOU 😤";
+        noBtn.innerHTML = "I'm actually going to punch you in the face 👊";
+        yesBtn.onclick = () => handleAnswer('yes-final');
+        noBtn.onclick = () => handleAnswer('punch');
+      }
+      else if (clickedSequence.length === 2 && clickedSequence[0] === 'no' && clickedSequence[1] === 'didnt-graduate') {
+        res.innerHTML = "Are you really sure you didn't graduate? 🤨";
+        yesBtn.innerHTML = "Excuse me sir, I actually did. THANK YOU 😤";
+        noBtn.innerHTML = "I'm actually going to punch you in the face 👊";
+        yesBtn.onclick = () => handleAnswer('yes-final');
+        noBtn.onclick = () => handleAnswer('punch');
+      }
+      else if (choice === 'yes-final') {
+        res.innerHTML = '<div class="celebration">Good! Now we are getting somewhere! 🎉</div>';
+        const buttons = questionBox.querySelectorAll("button");
+        buttons.forEach(btn => btn.remove());
+        triggerEmojiExplosion();
+        startCountdown(3, () => {
+          window.location.href = "letter.html";
+        });
+      }
+      else if (choice === 'nope-final') {
+        res.innerHTML = '<div class="celebration">Okay, fine. We\'ll continue anyways 😒</div>';
+        const buttons = questionBox.querySelectorAll("button");
+        buttons.forEach(btn => btn.remove());
+        
+        const manongButton = document.createElement('button');
+        manongButton.innerHTML = 'Okay, Manong 🙄';
+        manongButton.onclick = () => {
+          manongButton.remove();
+          manongText.style.display = 'block';
+          triggerEmojiExplosion();
+          startCountdown(3, () => {
+            window.location.href = "letter.html";
+          });
+        };
+        questionBox.appendChild(manongButton);
+      }
+      else if (choice === 'punch') {
+        res.innerHTML = '<div class="celebration">Okay, don\'t punch me in the face! 😰 Let\'s just continue...</div>';
+        const buttons = questionBox.querySelectorAll("button");
+        buttons.forEach(btn => btn.remove());
+        
+        const manongButton = document.createElement('button');
+        manongButton.innerHTML = 'Okay, Manong 🙄';
+        manongButton.onclick = () => {
+          manongButton.remove();
+          manongText.style.display = 'block';
+          triggerEmojiExplosion();
+          startCountdown(3, () => {
+            window.location.href = "letter.html";
+          });
+        };
+        questionBox.appendChild(manongButton);
+      }
+      else {
+        res.innerHTML = "I'm getting mixed signals here... let's just continue! 😅";
+        const buttons = questionBox.querySelectorAll("button");
+        buttons.forEach(btn => btn.remove());
+        startCountdown(3, () => {
+          window.location.href = "letter.html";
+        });
+      }
+    }
+
+    function startCountdown(seconds, callback) {
+      const countdownEl = document.getElementById('countdown');
+      let remaining = seconds;
+      
+      const updateCountdown = () => {
+        if (remaining > 0) {
+          countdownEl.textContent = `Redirecting in ${remaining}...`;
+          remaining--;
+          setTimeout(updateCountdown, 1000);
+        } else {
+          countdownEl.textContent = '';
+          callback();
+        }
+      };
+      
+      updateCountdown();
+    }
+
+    function triggerEmojiExplosion() {
+      const emojis = ['💐', '💜', '🎓', '🌸', '✨', '🎉', '🥳', '🌟', '💫', '🎊'];
+      for (let i = 0; i < 30; i++) {
+        setTimeout(() => {
+          const emoji = document.createElement('div');
+          emoji.classList.add('emoji-float');
+          emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          emoji.style.left = `${Math.random() * 100}%`;
+          emoji.style.top = `${50 + Math.random() * 30}%`;
+          emoji.style.fontSize = `${1.5 + Math.random() * 2}rem`;
+          emoji.style.animationDelay = `${Math.random() * 0.5}s`;
+          document.body.appendChild(emoji);
+          setTimeout(() => emoji.remove(), 3000);
+        }, i * 100);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const sparkles = ['✨', '🌟', '💫'];
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('emoji-float');
+            sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+            sparkle.style.left = `${20 + Math.random() * 60}%`;
+            sparkle.style.top = `${20 + Math.random() * 20}%`;
+            sparkle.style.fontSize = `1.2rem`;
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 3000);
+          }, i * 200);
+        }
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>
