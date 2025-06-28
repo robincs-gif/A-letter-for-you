@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Adrienne ✨</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: 
+        radial-gradient(circle at 25% 75%, rgba(218, 180, 255, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(255, 180, 218, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(200, 151, 245, 0.3) 0%, transparent 60%),
+        linear-gradient(135deg, #fdf6ff 0%, #f0e6ff 25%, #e7d3f6 50%, #f5ebff 75%, #fdf6ff 100%);
+      background-size: 300% 300%, 400% 400%, 250% 250%, 200% 200%;
+      animation: 
+        gentleFlow1 15s ease-in-out infinite,
+        gentleFlow2 18s ease-in-out infinite reverse,
+        gentleFlow3 22s ease-in-out infinite,
+        softShift 30s ease infinite;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #4d2c5e;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse at top left, rgba(255, 240, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(231, 211, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at center, rgba(207, 169, 230, 0.05) 0%, transparent 70%);
+      background-size: 400% 400%, 350% 350%, 500% 500%;
+      animation: 
+        dreamFloat1 25s ease-in-out infinite,
+        dreamFloat2 30s ease-in-out infinite reverse,
+        dreamFloat3 35s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @keyframes softShift {
+      0% { background-position: 0% 50%, 0% 50%, 0% 50%, 0% 50%; }
+      25% { background-position: 25% 75%, 30% 25%, 75% 50%, 50% 25%; }
+      50% { background-position: 50% 25%, 75% 75%, 25% 75%, 75% 50%; }
+      75% { background-position: 75% 50%, 25% 50%, 50% 25%, 25% 75%; }
+      100% { background-position: 0% 50%, 0% 50%, 0% 50%, 0% 50%; }
+    }
+
+    @keyframes gentleFlow1 {
+      0%, 100% { background-position: 0% 0%, 100% 100%, 50% 50%, 0% 100%; }
+      50% { background-position: 50% 50%, 50% 50%, 100% 0%, 100% 0%; }
+    }
+
+    @keyframes gentleFlow2 {
+      0%, 100% { background-position: 100% 0%, 0% 100%, 75% 25%, 25% 75%; }
+      50% { background-position: 25% 75%, 75% 25%, 0% 100%, 100% 0%; }
+    }
+
+    @keyframes gentleFlow3 {
+      0%, 100% { background-position: 50% 100%, 50% 0%, 0% 50%, 100% 50%; }
+      33% { background-position: 75% 75%, 25% 25%, 25% 75%, 75% 25%; }
+      66% { background-position: 25% 25%, 75% 75%, 75% 25%, 25% 75%; }
+    }
+
+    @keyframes dreamFloat1 {
+      0%, 100% { 
+        background-position: 0% 0%, 100% 100%, 50% 50%;
+        opacity: 0.3;
+      }
+      50% { 
+        background-position: 50% 50%, 50% 50%, 100% 0%;
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes dreamFloat2 {
+      0%, 100% { 
+        background-position: 100% 100%, 0% 0%, 100% 0%;
+        filter: blur(0px);
+      }
+      50% { 
+        background-position: 30% 30%, 70% 70%, 60% 40%;
+        filter: blur(1px);
+      }
+    }
+
+    @keyframes dreamFloat3 {
+      0%, 100% { 
+        background-position: 50% 0%, 50% 100%, 0% 50%;
+        transform: scale(1);
+      }
+      50% { 
+        background-position: 75% 25%, 25% 75%, 100% 50%;
+        transform: scale(1.02);
+      }
+    }
+
+    .letter-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(25px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      padding: 4rem 3rem;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: letterFloat 1.2s ease-out 0.5s forwards;
+    }
+
+    .letter-container::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg, 
+        rgba(207, 169, 230, 0.4), 
+        rgba(255, 240, 255, 0.2), 
+        rgba(231, 211, 246, 0.4),
+        rgba(207, 169, 230, 0.2));
+      border-radius: 30px;
+      z-index: -1;
+      animation: gentlePulse 4s ease-in-out infinite;
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.01); }
+    }
+
+    @keyframes letterFloat {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    .main-title {
+      font-size: 3.5rem;
+      font-weight: 300;
+      background: linear-gradient(45deg, #4d2c5e, #7b4397, #dc2430, #b589d9);
+      background-size: 300% 300%;
+      animation: titleShimmer 4s ease-in-out infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    @keyframes titleShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: #7b4397;
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    .message-content {
+      line-height: 2;
+      font-size: 1.3rem;
+      text-align: left;
+      margin: 2rem 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .message-paragraph {
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideInText 0.8s ease-out forwards;
+    }
+
+    .message-paragraph:nth-child(1) { animation-delay: 1.5s; }
+    .message-paragraph:nth-child(3) { animation-delay: 2s; }
+    .message-paragraph:nth-child(5) { animation-delay: 3.2s; }
+    .message-paragraph:nth-child(8) { animation-delay: 4.2s; }
+    .message-paragraph:nth-child(10) { animation-delay: 4.8s; }
+    .message-paragraph:nth-child(11) { animation-delay: 5s; }
+
+    @keyframes slideInText {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, rgba(207, 169, 230, 0.3) 0%, rgba(255, 240, 255, 0.3) 100%);
+      padding: 0.2rem 0.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #4d2c5e;
+    }
+
+    .inline-sticker {
+      text-align: center;
+      margin: 2.5rem 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .inline-sticker:nth-child(2) { animation-delay: 2.2s; }
+    .inline-sticker:nth-child(4) { animation-delay: 2.8s; }
+    .inline-sticker:nth-child(7) { animation-delay: 3.8s; }
+    .inline-sticker:nth-child(9) { animation-delay: 4.2s; }
+    .inline-sticker:nth-child(12) { animation-delay: 5.2s; }
+
+    .sticker-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 4s forwards;
+    }
+
+    .celebration-sticker {
+      width: 140px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(207, 169, 230, 0.3);
+      transition: all 0.4s ease;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      opacity: 0;
+      transform: scale(0.8) rotate(-15deg);
+      animation: stickerReveal 0.8s ease-out forwards;
+    }
+
+    .celebration-sticker:nth-child(1) { animation-delay: 4.2s; }
+    .celebration-sticker:nth-child(2) { animation-delay: 4.4s; }
+    .celebration-sticker:nth-child(3) { animation-delay: 4.6s; }
+
+    .celebration-sticker:hover {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 15px 40px rgba(207, 169, 230, 0.5);
+    }
+
+    @keyframes stickerReveal {
+      0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-30deg);
+      }
+      60% {
+        opacity: 1;
+        transform: scale(1.1) rotate(10deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    .signature-section {
+      text-align: center;
+      margin-top: 3rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 5.5s forwards;
+    }
+
+    .postscript {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: #7b4397;
+      margin-top: 8rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 6s forwards;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(123, 67, 151, 0.2);
+    }
+
+    .signature {
+      font-size: 1.4rem;
+      font-style: italic;
+      color: #7b4397;
+      margin-bottom: 1rem;
+    }
+
+    .heart-emoji {
+      font-size: 2rem;
+      animation: heartBeat 2s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* Floating particles */
+    .particle {
+      position: fixed;
+      font-size: 1.2rem;
+      animation: gentleFloat 6s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.7;
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.7;
+      }
+    }
+
+    /* Sparkle effect */
+    .sparkle {
+      position: fixed;
+      width: 3px;
+      height: 3px;
+      background: radial-gradient(circle, rgba(207, 169, 230, 0.8), transparent);
+      border-radius: 50%;
+      animation: sparkleGlow 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes sparkleGlow {
+      0%, 100% {
+        transform: scale(0) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1) rotate(180deg);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .letter-container {
+        margin: 1rem;
+        padding: 2.5rem 2rem;
+      }
+      
+      .main-title {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .message-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+      
+      .sticker-gallery {
+        gap: 1.5rem;
+      }
+      
+      .celebration-sticker {
+        width: 110px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="letter-container">
+    <div class="header">
+      <h1 class="main-title">Dear Adrienne</h1>
+      <p class="subtitle">A letter for you ✨</p>
+    </div>
+
+    <div class="message-content">
+      <p class="message-paragraph">
+        As I sit here trying to find the perfect words to say how <span class="highlight">proud</span> I am of you, I realize—no arrangement of letters could ever capture the depth of my admiration for who you are, what you've become, and what you've achieved.
+      </p>
+
+      <div class="inline-sticker">
+        <img src="https://media.tenor.com/4leO728HhXcAAAAj/james-cook-university-graduation.gif" alt="James Cook University Graduation" class="celebration-sticker">
+      </div>
+
+      <p class="message-paragraph">
+        Watching you navigate through your studies, overcome challenges, and grow into the remarkable person you are today has been one of life's greatest privileges. Your <span class="highlight">determination, kindness, and brilliant mind</span> never cease to amaze me.
+      </p>
+
+      <div class="inline-sticker">
+        <img src="https://media.tenor.com/KNkWsf5E-Y8AAAAM/hopping-fluffy.gif" alt="Hopping Fluffy Celebration" class="celebration-sticker">
+      </div>
+
+      <p class="message-paragraph">
+        This graduation isn't just a milestone—it's a testament to your <span class="highlight">resilience, hard work, and unwavering spirit</span>. You've earned every single moment of celebration that comes with this achievement.
+      </p>
+
+      <div class="inline-sticker">
+        <img src="https://media.tenor.com/lIzbEeZGun4AAAAj/puglie-pug.gif" alt="Celebrating Pug" class="celebration-sticker">
+      </div>
+
+      <p class="message-paragraph">
+        I want you to know that my appreciation for you goes far beyond your academic success. You bring <span class="highlight">light, laughter, and love</span> into every space you enter, and the world is undeniably brighter because you're in it.
+      </p>
+
+      <div class="inline-sticker">
+        <img src="https://media.tenor.com/4DiFwww6548AAAAi/kitty.gif" alt="Cute Kitty" class="celebration-sticker">
+      </div>
+
+      <p class="message-paragraph">
+        As you step into this new chapter, remember that you carry with you not just knowledge from textbooks, but the <span class="highlight">wisdom, strength, and beautiful heart</span> that make you uniquely you.
+      </p>
+
+      <div class="inline-sticker">
+        <img src="https://media.tenor.com/qvKbHstPH9wAAAAj/heytvm-tvm.gif" alt="Graduation Celebration" class="celebration-sticker">
+      </div>
+    </div>
+
+    <!-- Graduation Stickers -->
+    <div class="sticker-gallery" style="display: none;">
+      <img src="https://media.tenor.com/4leO728HhXcAAAAj/james-cook-university-graduation.gif" alt="James Cook University Graduation" class="celebration-sticker">
+      <img src="https://media.tenor.com/lIzbEeZGun4AAAAj/puglie-pug.gif" alt="Celebrating Pug" class="celebration-sticker">
+      <img src="https://media.tenor.com/qvKbHstPH9wAAAAj/heytvm-tvm.gif" alt="Graduation Celebration" class="celebration-sticker">
+    </div>
+
+    <div class="signature-section">
+      <p class="signature">With endless love, pride, and belief that someone who truly sees you can give,</p>
+      <p class="signature"><strong>From, Manong</strong></p>
+      <div class="heart-emoji">💜</div>
+      
+      <p class="postscript">P.S. And even though you might not shower and might stink sometimes, I am really proud of you and I appreciate you regardless hehehe... 😄</p>
+    </div>
+  </div>
+
+  <script>
+    function createGentleParticles() {
+      const particles = ['✨', '🌟', '💫', '🎓', '💜', '🌸'];
+      
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          particle.textContent = particles[Math.floor(Math.random() * particles.length)];
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+          particle.style.animationDelay = `${Math.random() * 2}s`;
+          particle.style.animationDuration = `${4 + Math.random() * 4}s`;
+          document.body.appendChild(particle);
+          
+          setTimeout(() => particle.remove(), 8000);
+        }, i * 1000);
+      }
+    }
+
+    function createAmbientSparkles() {
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+          const sparkle = document.createElement('div');
+          sparkle.classList.add('sparkle');
+          sparkle.style.left = `${Math.random() * 100}%`;
+          sparkle.style.top = `${Math.random() * 100}%`;
+          sparkle.style.animationDelay = `${Math.random() * 3}s`;
+          sparkle.style.animationDuration = `${3 + Math.random() * 2}s`;
+          document.body.appendChild(sparkle);
+          
+          setTimeout(() => sparkle.remove(), 6000);
+        }, i * 500);
+      }
+    }
+
+    // Initialize ambient effects
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        createGentleParticles();
+        createAmbientSparkles();
+      }, 2000);
+      
+      // Continue creating gentle ambient effects
+      setInterval(() => {
+        createGentleParticles();
+        createAmbientSparkles();
+      }, 8000);
+    });
+
+    // Subtle mouse interaction for sparkles
+    document.addEventListener('mousemove', (e) => {
+      if (Math.random() < 0.01) { // 1% chance - very subtle
+        const sparkle = document.createElement('div');
+        sparkle.classList.add('sparkle');
+        sparkle.style.left = `${e.clientX}px`;
+        sparkle.style.top = `${e.clientY}px`;
+        document.body.appendChild(sparkle);
+        
+        setTimeout(() => sparkle.remove(), 4000);
+      }
+    });
+  </script>
+</body>
+</html>
