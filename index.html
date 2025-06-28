@@ -232,7 +232,8 @@
       z-index: 99;
       position: relative;
       width: 100%;
-      height: 200px;
+      height: 150px;
+      overflow: visible;
     }
 
     .corgi-sticker img {
@@ -242,28 +243,29 @@
       filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
       border: 3px solid rgba(255, 255, 255, 0.3);
       position: absolute;
+      top: 0;
       animation: moveLeftRight 8s infinite ease-in-out;
     }
 
     @keyframes moveLeftRight {
       0% { 
-        left: 0%;
+        left: 10%;
         transform: translateX(0%) scaleX(1);
       }
       25% { 
-        left: 25%;
+        left: 35%;
         transform: translateX(-50%) scaleX(1);
       }
       50% { 
-        left: 50%;
+        left: 60%;
         transform: translateX(-50%) scaleX(-1);
       }
       75% { 
-        left: 25%;
+        left: 35%;
         transform: translateX(-50%) scaleX(-1);
       }
       100% { 
-        left: 0%;
+        left: 10%;
         transform: translateX(0%) scaleX(1);
       }
     }
@@ -368,7 +370,7 @@
 
   <div class="sticker-row">
     <img src="https://media.tenor.com/KvHHo2RXD4wAAAAi/bubu-bubu-dudu.gif" alt="Bubu Dudu">
-    <img src="https://media.tenor.com/EKUNdZ53C7UAAAAj/tonibear-bear.gif" alt="Hooray">
+    <img src="https://media1.tenor.com/m/ZARBViZffU4AAAAd/hd-smirk.gif" alt="HD Smirk">
   </div>
 
   <div class="corgi-sticker">
