@@ -230,15 +230,42 @@
       text-align: center;
       margin-top: 30px;
       z-index: 99;
+      position: relative;
+      width: 100%;
+      height: 200px;
     }
 
     .corgi-sticker img {
-      width: 150px;
+      width: 120px;
       height: auto;
       border-radius: 15px;
-      animation: bounce 2s infinite ease-in-out;
       filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
       border: 3px solid rgba(255, 255, 255, 0.3);
+      position: absolute;
+      animation: moveLeftRight 8s infinite ease-in-out;
+    }
+
+    @keyframes moveLeftRight {
+      0% { 
+        left: 0%;
+        transform: translateX(0%) scaleX(1);
+      }
+      25% { 
+        left: 25%;
+        transform: translateX(-50%) scaleX(1);
+      }
+      50% { 
+        left: 50%;
+        transform: translateX(-50%) scaleX(-1);
+      }
+      75% { 
+        left: 25%;
+        transform: translateX(-50%) scaleX(-1);
+      }
+      100% { 
+        left: 0%;
+        transform: translateX(0%) scaleX(1);
+      }
     }
 
     @keyframes bounce {
@@ -256,8 +283,9 @@
     }
 
     .sticker-row img {
-      max-width: 40vw;
-      height: auto;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
@@ -271,13 +299,14 @@
 
     @media (max-width: 768px) {
       .sticker-row img {
-        max-width: 80vw;
+        width: 150px;
+        height: 150px;
       }
       h1 {
         font-size: 2em;
       }
       .corgi-sticker img {
-        width: 120px;
+        width: 100px;
       }
     }
 
@@ -339,7 +368,7 @@
 
   <div class="sticker-row">
     <img src="https://media.tenor.com/KvHHo2RXD4wAAAAi/bubu-bubu-dudu.gif" alt="Bubu Dudu">
-    <img src="https://media.tenor.com/EKUNdZ53C7UAAAAj/tonibear-bear.gif" alt="Congratulations">
+    <img src="https://media.tenor.com/EKUNdZ53C7UAAAAj/tonibear-bear.gif" alt="Hooray">
   </div>
 
   <div class="corgi-sticker">
